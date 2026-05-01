@@ -62,6 +62,7 @@ export const Testimonials = () => {
           {/* Column 1 */}
           <div className="md:flex lg:flex-col lg:space-y-4 h-full lg:gap-0 gap-4">
             <TimelineContent animationNum={3} customVariants={revealVariants} timelineRef={testimonialRef} className="lg:flex-[7] flex-[6] flex flex-col justify-between relative bg-[#0a0a0a] text-white overflow-hidden rounded-3xl border border-white/10 p-8 group transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_40px_rgba(255,255,255,0.03)]">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(255,255,255,0.05)_0%,transparent_100%)] pointer-events-none"></div>
               <article className="mt-auto relative z-10">
                 <p className="text-lg text-white/90 leading-relaxed mb-8 font-medium">
@@ -104,7 +105,8 @@ export const Testimonials = () => {
           {/* Column 2 */}
           <div className="lg:h-full md:flex lg:flex-col h-fit lg:space-y-4 lg:gap-0 gap-4">
             <TimelineContent animationNum={5} customVariants={revealVariants} timelineRef={testimonialRef} className="flex flex-col justify-between relative bg-[#0a0a0a] text-white overflow-hidden rounded-3xl border border-white/10 p-8 group transition-all duration-300 hover:border-white/20 hover:bg-[#111]">
-              <article className="mt-auto">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
+              <article className="mt-auto relative z-10">
                 <p className="text-base text-white/80 leading-relaxed mb-6 font-medium">
                   "Their team is highly professional, and their custom-trained LLMs have truly transformed the way we operate internally."
                 </p>
@@ -123,7 +125,8 @@ export const Testimonials = () => {
             </TimelineContent>
 
             <TimelineContent animationNum={6} customVariants={revealVariants} timelineRef={testimonialRef} className="flex flex-col justify-between relative bg-[#0a0a0a] text-white overflow-hidden rounded-3xl border border-white/10 p-8 group transition-all duration-300 hover:border-white/20 hover:bg-[#111]">
-              <article className="mt-auto">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
+              <article className="mt-auto relative z-10">
                 <p className="text-base text-white/80 leading-relaxed mb-6 font-medium">
                   "We're extremely satisfied with the seamless integration process. Their architecture exceeded our security expectations."
                 </p>
@@ -142,7 +145,8 @@ export const Testimonials = () => {
             </TimelineContent>
 
             <TimelineContent animationNum={7} customVariants={revealVariants} timelineRef={testimonialRef} className="flex flex-col justify-between relative bg-[#0a0a0a] text-white overflow-hidden rounded-3xl border border-white/10 p-8 group transition-all duration-300 hover:border-white/20 hover:bg-[#111]">
-              <article className="mt-auto">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
+              <article className="mt-auto relative z-10">
                 <p className="text-base text-white/80 leading-relaxed mb-6 font-medium">
                   "Their real-time data processing engines are absolutely exceptional. Incredibly helpful for our analytics."
                 </p>
@@ -164,7 +168,8 @@ export const Testimonials = () => {
           {/* Column 3 */}
           <div className="h-full md:flex lg:flex-col lg:space-y-4 lg:gap-0 gap-4">
             <TimelineContent animationNum={8} customVariants={revealVariants} timelineRef={testimonialRef} className="lg:flex-[3] flex-[4] flex flex-col justify-between relative bg-[#1a1a1a] text-white overflow-hidden rounded-3xl border border-white/10 p-8 group transition-all duration-300 hover:border-white/30 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)]">
-              <article className="mt-auto">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
+              <article className="mt-auto relative z-10">
                 <p className="font-medium text-white/90 leading-relaxed mb-8">
                   "InovX Lab has been a key strategic partner in our autonomous driving journey."
                 </p>
@@ -183,6 +188,7 @@ export const Testimonials = () => {
             </TimelineContent>
 
             <TimelineContent animationNum={9} customVariants={revealVariants} timelineRef={testimonialRef} className="lg:flex-[7] flex-[6] flex flex-col justify-between relative bg-[#050505] text-white overflow-hidden rounded-3xl border border-white/10 p-8 group transition-all duration-300 hover:border-white/20">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none"></div>
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/[0.03] rounded-full blur-[40px] pointer-events-none"></div>
               <article className="mt-auto relative z-10">
                 <p className="text-lg text-white/80 leading-relaxed mb-8 font-medium">

@@ -318,7 +318,7 @@ export function CinematicAbout({
 
       {/* BACKGROUND LAYER: About Taglines */}
       <div className="hero-text-wrapper absolute z-10 flex flex-col items-center justify-center text-center w-screen px-4 -mt-12 will-change-transform transform-style-3d">
-        <h1 className="text-track text-3d-matte text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight mb-6 text-white whitespace-nowrap opacity-0">
+        <h1 className="text-track text-3d-matte text-3xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-white opacity-0" style={{ fontSize: 'clamp(1.8rem, 5vw, 5.5rem)' }}>
           Empowering Intelligent Innovation
         </h1>
         <div className="text-days w-full max-w-4xl mx-auto flex items-center justify-center">
@@ -332,12 +332,12 @@ export function CinematicAbout({
       <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none" style={{ perspective: "1500px" }}>
         <div
           ref={mainCardRef}
-          className="main-card premium-depth-card relative overflow-hidden gsap-reveal flex items-center justify-center pointer-events-auto w-[92vw] md:w-[85vw] h-[75vh] md:h-[70vh] rounded-[32px] md:rounded-[40px]"
+          className="main-card premium-depth-card relative overflow-hidden gsap-reveal flex items-center justify-center pointer-events-auto w-[95vw] md:w-[88vw] h-[80vh] md:h-[75vh] rounded-[32px] md:rounded-[40px]"
         >
           <div className="card-sheen" aria-hidden="true" />
 
           {/* CLEAN 2-COLUMN LAYOUT */}
-          <div className="relative w-full h-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 z-10 py-8 lg:py-0">
+          <div className="relative w-full h-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-10 z-10 py-8 lg:py-0">
             
             {/* LEFT: Clean Content */}
             <div className="card-left-text gsap-reveal relative flex flex-col items-center lg:items-start text-center lg:text-left z-20 w-full lg:w-1/2">
@@ -345,7 +345,7 @@ export function CinematicAbout({
               {/* Glow background spotlight */}
               <div className="absolute top-1/2 left-1/2 lg:left-0 -translate-x-1/2 lg:-translate-x-1/4 -translate-y-1/2 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-white/10 blur-[80px] md:blur-[120px] rounded-full opacity-30 animate-pulse pointer-events-none" aria-hidden="true" />
 
-              <h3 className="relative text-white text-2xl md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6 tracking-tight whitespace-nowrap">
+              <h3 className="relative text-white text-2xl md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6 tracking-tight">
                 {cardHeading}
               </h3>
               <p className="relative text-white/60 text-base md:text-lg lg:text-xl font-normal leading-relaxed mx-auto lg:mx-0 max-w-md">
@@ -364,8 +364,8 @@ export function CinematicAbout({
               </div>
 
               {/* Device Mockup */}
-              <div className="mockup-scroll-wrapper relative w-full h-[340px] lg:h-[520px] flex items-center justify-center" style={{ perspective: "1000px" }}>
-                <div className="relative w-full h-full flex items-center justify-center transform scale-[0.6] md:scale-75 lg:scale-90">
+              <div className="mockup-scroll-wrapper relative w-full h-[300px] lg:h-[460px] flex items-center justify-center" style={{ perspective: "1000px" }}>
+                <div className="relative w-full h-full flex items-center justify-center transform scale-[0.55] md:scale-[0.65] lg:scale-[0.8]">
                   
                   {/* The iPhone Bezel */}
                   <div
@@ -443,10 +443,10 @@ export function CinematicAbout({
                     </div>
                   </div>
 
-                  {/* Floating Notification Badges — tight to phone */}
-                  <div className="floating-badge absolute flex top-4 left-[-20px] lg:left-[-60px] floating-ui-badge rounded-xl lg:rounded-2xl p-2.5 lg:p-3 items-center gap-2.5 lg:gap-3 z-30">
+                  {/* Floating Notification Badges — tight to phone with live indicators */}
+                  <div className="floating-badge absolute flex top-8 left-[-10px] lg:left-[-40px] floating-ui-badge rounded-xl lg:rounded-2xl p-2.5 lg:p-3 items-center gap-2.5 lg:gap-3 z-30">
                     <div className="w-7 h-7 lg:w-9 lg:h-9 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
-                      <Brain className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-white/80" />
+                      <Brain className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-white/80 animate-pulse" />
                     </div>
                     <div>
                       <p className="text-white text-[11px] lg:text-xs font-bold tracking-tight">Smart Automation</p>
@@ -454,9 +454,9 @@ export function CinematicAbout({
                     </div>
                   </div>
 
-                  <div className="floating-badge absolute flex top-1/2 -translate-y-1/2 right-[-20px] lg:right-[-60px] floating-ui-badge rounded-xl lg:rounded-2xl p-2.5 lg:p-3 items-center gap-2.5 lg:gap-3 z-30">
+                  <div className="floating-badge absolute flex top-[45%] -translate-y-1/2 right-[-10px] lg:right-[-40px] floating-ui-badge rounded-xl lg:rounded-2xl p-2.5 lg:p-3 items-center gap-2.5 lg:gap-3 z-30">
                     <div className="w-7 h-7 lg:w-9 lg:h-9 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
-                      <Lock className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-white/80" />
+                      <Lock className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-white/80 animate-pulse" />
                     </div>
                     <div>
                       <p className="text-white text-[11px] lg:text-xs font-bold tracking-tight">Data Privacy</p>
@@ -464,9 +464,9 @@ export function CinematicAbout({
                     </div>
                   </div>
 
-                  <div className="floating-badge absolute flex bottom-4 left-[-10px] lg:left-[-50px] floating-ui-badge rounded-xl lg:rounded-2xl p-2.5 lg:p-3 items-center gap-2.5 lg:gap-3 z-30">
+                  <div className="floating-badge absolute flex bottom-10 left-[0px] lg:left-[-30px] floating-ui-badge rounded-xl lg:rounded-2xl p-2.5 lg:p-3 items-center gap-2.5 lg:gap-3 z-30">
                     <div className="w-7 h-7 lg:w-9 lg:h-9 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
-                      <Settings className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-white/80" />
+                      <Settings className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-white/80 animate-pulse" />
                     </div>
                     <div>
                       <p className="text-white text-[11px] lg:text-xs font-bold tracking-tight">Secure Systems</p>

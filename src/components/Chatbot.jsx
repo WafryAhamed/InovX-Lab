@@ -65,10 +65,10 @@ export const Chatbot = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 50 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="mb-4 w-80 sm:w-[340px] h-[440px] bg-black/80 backdrop-blur-lg border border-white/10 rounded-2xl flex flex-col overflow-hidden shadow-2xl"
+            className="mb-4 w-80 sm:w-[340px] h-[440px] bg-white/[0.05] backdrop-blur-2xl border border-white/15 rounded-2xl flex flex-col overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.1)]"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-white/[0.02]">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-white/10 bg-white/[0.05] backdrop-blur-xl">
               <div className="flex items-center gap-3">
                 {/* Small Header Robot Icon */}
                 <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-lg">
@@ -102,8 +102,8 @@ export const Chatbot = () => {
                   animate={{ opacity: 1, y: 0 }}
                   className={`max-w-[75%] rounded-2xl px-4 py-2.5 text-sm ${
                     msg.sender === 'user'
-                      ? 'bg-white text-black font-medium self-end rounded-br-sm shadow-lg shadow-white/10'
-                      : 'bg-white/10 text-white/90 self-start rounded-bl-sm border border-white/[0.05]'
+                      ? 'bg-white/90 text-black font-medium self-end rounded-br-sm shadow-lg shadow-white/10 backdrop-blur-sm'
+                      : 'bg-white/[0.08] text-white/90 self-start rounded-bl-sm border border-white/10 backdrop-blur-sm'
                   }`}
                 >
                   {msg.text}
@@ -113,7 +113,7 @@ export const Chatbot = () => {
             </div>
 
             {/* Input Area */}
-            <div className="p-4 border-t border-white/10 bg-white/[0.02]">
+            <div className="p-4 border-t border-white/10 bg-white/[0.05] backdrop-blur-xl">
               <form
                 onSubmit={handleSend}
                 className="flex items-center gap-2"
@@ -144,7 +144,7 @@ export const Chatbot = () => {
         onClick={toggleChat}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        className="w-16 h-16 bg-white text-black rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(255,255,255,0.15)] transition-shadow hover:shadow-[0_0_40px_rgba(255,255,255,0.25)]"
+        className="w-16 h-16 bg-white/10 backdrop-blur-xl border border-white/20 text-white rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.1)] transition-colors hover:bg-white/20"
         aria-label="Toggle chat"
       >
         {isOpen ? (

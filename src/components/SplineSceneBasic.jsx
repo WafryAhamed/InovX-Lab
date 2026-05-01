@@ -36,6 +36,8 @@ export function SplineSceneBasic({ onLoad }) {
           />
         </div>
       </div>
+
+      <div className="pointer-events-none absolute inset-0 z-20 rounded-lg border border-neutral-800" />
     </Card>
   );
 }

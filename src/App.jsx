@@ -18,8 +18,8 @@ export function App() {
 
       {/* Main wrapper must be relative with a high z-index and background to scroll over the fixed footer */}
       <main className="relative z-10 bg-black rounded-b-[40px] shadow-2xl border-b border-white/10">
-        <section id="hero" className="h-[75vh] w-full flex items-center justify-center pt-20">
-          <div className="w-full max-w-6xl">
+        <section id="hero" className="min-h-[85vh] w-full flex items-center justify-center pt-28 pb-10 px-6">
+          <div className="w-full max-w-6xl mx-auto">
             <SplineSceneBasic />
           </div>
         </section>

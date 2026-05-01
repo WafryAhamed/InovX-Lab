@@ -1,6 +1,7 @@
 import React from 'react';
 import { SplineSceneBasic } from './components/SplineSceneBasic';
 import { About } from './components/About';
+import { Services } from './components/Services';
 
 export function App() {
   return (
@@ -22,6 +23,9 @@ export function App() {
         </section>
 
         <About />
+
+        {/* Services Section */}
+        <Services />
       </main>
     </div>
   );

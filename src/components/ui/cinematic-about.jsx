@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Brain, LineChart, MessageSquare, BarChart3, Settings, Lock } from "lucide-react";
+import { Brain, LineChart, MessageSquare, BarChart3, Settings, Lock, Rocket, Users } from "lucide-react";
 import { cn } from "../../lib/utils";
 import { GooeyText } from "./gooey-text-morphing";
 
@@ -336,174 +336,146 @@ export function CinematicAbout({
         >
           <div className="card-sheen" aria-hidden="true" />
 
-          {/* DYNAMIC RESPONSIVE GRID */}
-          <div className="relative w-full h-full max-w-7xl mx-auto px-4 lg:px-12 flex flex-col justify-evenly lg:grid lg:grid-cols-3 items-center lg:gap-8 z-10 py-6 lg:py-0">
+          {/* CLEAN 2-COLUMN LAYOUT */}
+          <div className="relative w-full h-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 z-10 py-8 lg:py-0">
             
-            {/* 1. TOP/RIGHT: COMPANY NAME */}
-            <div className="card-right-text gsap-reveal order-1 lg:order-3 flex justify-center lg:justify-end z-20 w-full">
-              <h2 className="text-6xl md:text-[6rem] lg:text-[8rem] font-black uppercase tracking-tighter text-card-silver-matte lg:mt-0">
-                {companyName}
-              </h2>
-            </div>
-
-            {/* 2. MIDDLE/CENTER: DEVICE MOCKUP (Showcasing work/process) */}
-            <div className="mockup-scroll-wrapper order-2 lg:order-2 relative w-full h-[340px] lg:h-[520px] flex items-center justify-center z-10" style={{ perspective: "1000px" }}>
+            {/* LEFT: Clean Content */}
+            <div className="card-left-text gsap-reveal relative flex flex-col items-center lg:items-start text-center lg:text-left z-20 w-full lg:w-1/2">
               
-              <div className="relative w-full h-full flex items-center justify-center transform scale-[0.6] md:scale-75 lg:scale-90">
-                
-                {/* The iPhone Bezel */}
-                <div
-                  ref={mockupRef}
-                  className="relative w-[250px] h-[520px] rounded-[2.8rem] iphone-bezel flex flex-col will-change-transform transform-style-3d"
-                >
-                  {/* Physical Hardware Buttons */}
-                  <div className="absolute top-[120px] -left-[3px] w-[3px] h-[25px] hardware-btn rounded-l-md z-0" aria-hidden="true" />
-                  <div className="absolute top-[160px] -left-[3px] w-[3px] h-[45px] hardware-btn rounded-l-md z-0" aria-hidden="true" />
-                  <div className="absolute top-[220px] -left-[3px] w-[3px] h-[45px] hardware-btn rounded-l-md z-0" aria-hidden="true" />
-                  <div className="absolute top-[170px] -right-[3px] w-[3px] h-[70px] hardware-btn rounded-r-md z-0 scale-x-[-1]" aria-hidden="true" />
+              {/* Glow background spotlight */}
+              <div className="absolute top-1/2 left-1/2 lg:left-0 -translate-x-1/2 lg:-translate-x-1/4 -translate-y-1/2 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-white/10 blur-[80px] md:blur-[120px] rounded-full opacity-30 animate-pulse pointer-events-none" aria-hidden="true" />
 
-                  {/* Inner Screen Container */}
-                  <div className="absolute inset-[7px] bg-[#050914] rounded-[2.5rem] overflow-hidden shadow-[inset_0_0_15px_rgba(0,0,0,1)] text-white z-10">
-                    <div className="absolute inset-0 screen-glare z-40 pointer-events-none" aria-hidden="true" />
-
-                    {/* Dynamic Island Notch */}
-                    <div className="absolute top-[5px] left-1/2 -translate-x-1/2 w-[100px] h-[28px] bg-black rounded-full z-50 flex items-center justify-end px-3 shadow-[inset_0_-1px_2px_rgba(255,255,255,0.1)]">
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)] animate-pulse" />
-                    </div>
-
-                    {/* App Interface - About/Portfolio Preview */}
-                    <div className="relative w-full h-full pt-12 px-5 pb-8 flex flex-col">
-                      <div className="phone-widget flex justify-between items-center mb-6">
-                        <div className="flex flex-col">
-                          <span className="text-[10px] text-neutral-400 uppercase tracking-widest font-bold mb-1">Offerings</span>
-                          <span className="text-lg font-bold tracking-tight text-white drop-shadow-md">Core AI</span>
-                        </div>
-                        <div className="w-8 h-8 rounded-full bg-white/5 text-neutral-200 flex items-center justify-center font-bold text-xs border border-white/10 shadow-lg shadow-black/50">
-                          {companyName.charAt(0)}
-                        </div>
-                      </div>
-
-                      {/* Animated Metric Ring */}
-                      <div className="phone-widget relative w-36 h-36 mx-auto flex items-center justify-center mb-6 drop-shadow-[0_15px_25px_rgba(0,0,0,0.8)]">
-                        <svg className="absolute inset-0 w-full h-full" aria-hidden="true">
-                          <circle cx="72" cy="72" r="54" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="10" />
-                          <circle className="progress-ring" style={{ strokeDasharray: 340, strokeDashoffset: 340 }} cx="72" cy="72" r="54" fill="none" stroke="#FFFFFF" strokeWidth="10" />
-                        </svg>
-                        <div className="text-center z-10 flex flex-col items-center">
-                          <span className="counter-val text-3xl font-extrabold tracking-tighter text-white">0</span>
-                          <span className="text-[7px] text-neutral-400 uppercase tracking-[0.1em] font-bold mt-0.5">{metricLabel}</span>
-                        </div>
-                      </div>
-
-                      {/* Feature Cards */}
-                      <div className="space-y-3">
-                        <div className="phone-widget widget-depth rounded-2xl p-3 flex items-center">
-                          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center mr-3 border border-white/20 shadow-inner">
-                            <svg className="w-4 h-4 text-white/80 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                          </div>
-                          <div className="flex-1">
-                            <div className="h-2 w-24 bg-neutral-300 rounded-full mb-2 shadow-inner" />
-                            <div className="h-1.5 w-16 bg-neutral-600 rounded-full shadow-inner" />
-                          </div>
-                        </div>
-                        <div className="phone-widget widget-depth rounded-2xl p-3 flex items-center">
-                          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neutral-500/20 to-neutral-600/5 flex items-center justify-center mr-3 border border-neutral-400/20 shadow-inner">
-                            <svg className="w-4 h-4 text-neutral-300 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                          </div>
-                          <div className="flex-1">
-                            <div className="h-2 w-20 bg-neutral-300 rounded-full mb-2 shadow-inner" />
-                            <div className="h-1.5 w-20 bg-neutral-600 rounded-full shadow-inner" />
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Home Indicator */}
-                      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[120px] h-[4px] bg-white/20 rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Badge 1: Intelligent Automation */}
-                <div className="floating-badge absolute flex top-0 lg:top-[-40px] left-[-30px] lg:left-[-120px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 lg:gap-4 z-30">
-                  <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
-                    <Brain className="w-4 h-4 lg:w-5 lg:h-5 text-white/80" />
-                  </div>
-                  <div>
-                    <p className="text-white text-xs lg:text-sm font-bold tracking-tight">Intelligent Automation</p>
-                    <p className="text-neutral-400 text-[10px] lg:text-xs font-medium">Automate repetitive workflows</p>
-                  </div>
-                </div>
-
-                {/* Badge 2: Predictive Analytics */}
-                <div className="floating-badge absolute flex top-0 lg:top-[-40px] right-[-30px] lg:right-[-120px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 lg:gap-4 z-30">
-                  <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
-                    <LineChart className="w-4 h-4 lg:w-5 lg:h-5 text-white/80" />
-                  </div>
-                  <div>
-                    <p className="text-white text-xs lg:text-sm font-bold tracking-tight">Predictive Analytics</p>
-                    <p className="text-neutral-400 text-[10px] lg:text-xs font-medium">Forecast trends & insights</p>
-                  </div>
-                </div>
-
-                {/* Badge 3: AI Chat Systems */}
-                <div className="floating-badge absolute flex top-1/2 -translate-y-1/2 left-[-40px] lg:left-[-150px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 lg:gap-4 z-30">
-                  <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
-                    <MessageSquare className="w-4 h-4 lg:w-5 lg:h-5 text-white/80" />
-                  </div>
-                  <div>
-                    <p className="text-white text-xs lg:text-sm font-bold tracking-tight">AI Chat Systems</p>
-                    <p className="text-neutral-400 text-[10px] lg:text-xs font-medium">Smart conversational assistants</p>
-                  </div>
-                </div>
-
-                {/* Badge 4: Data Intelligence */}
-                <div className="floating-badge absolute flex top-1/2 -translate-y-1/2 right-[-40px] lg:right-[-150px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 lg:gap-4 z-30">
-                  <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
-                    <BarChart3 className="w-4 h-4 lg:w-5 lg:h-5 text-white/80" />
-                  </div>
-                  <div>
-                    <p className="text-white text-xs lg:text-sm font-bold tracking-tight">Data Intelligence</p>
-                    <p className="text-neutral-400 text-[10px] lg:text-xs font-medium">Real-time actionable insights</p>
-                  </div>
-                </div>
-
-                {/* Badge 5: Scalable Digital Solutions */}
-                <div className="floating-badge absolute flex bottom-0 lg:bottom-[-40px] left-[-30px] lg:left-[-120px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 lg:gap-4 z-30">
-                  <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
-                    <Settings className="w-4 h-4 lg:w-5 lg:h-5 text-white/80" />
-                  </div>
-                  <div>
-                    <p className="text-white text-xs lg:text-sm font-bold tracking-tight">Scalable Solutions</p>
-                    <p className="text-neutral-400 text-[10px] lg:text-xs font-medium">Reliable systems that grow</p>
-                  </div>
-                </div>
-
-                {/* Badge 6: Secure Architecture */}
-                <div className="floating-badge absolute flex bottom-0 lg:bottom-[-40px] right-[-30px] lg:right-[-120px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 lg:gap-4 z-30">
-                  <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
-                    <Lock className="w-4 h-4 lg:w-5 lg:h-5 text-white/80" />
-                  </div>
-                  <div>
-                    <p className="text-white text-xs lg:text-sm font-bold tracking-tight">Secure Architecture</p>
-                    <p className="text-neutral-400 text-[10px] lg:text-xs font-medium">Robust data protection</p>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            {/* 3. BOTTOM/LEFT: ABOUT CONTENT */}
-            <div className="card-left-text gsap-reveal order-3 lg:order-1 flex flex-col justify-center text-center lg:text-left z-20 w-full lg:max-w-none px-4 lg:px-0">
-              <h3 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-0 lg:mb-5 tracking-tight">
+              <h3 className="relative text-white text-2xl md:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6 tracking-tight whitespace-nowrap">
                 {cardHeading}
               </h3>
-              <p className="hidden md:block text-white/60 text-sm md:text-base lg:text-lg font-normal leading-relaxed mx-auto lg:mx-0 max-w-md">
+              <p className="relative text-white/60 text-base md:text-lg lg:text-xl font-normal leading-relaxed mx-auto lg:mx-0 max-w-md">
                 AI solutions built to automate, optimize, and scale.
               </p>
+            </div>
+
+            {/* RIGHT: Phone Mockup + Watermark */}
+            <div className="relative flex items-center justify-center z-10 w-full lg:w-1/2">
+              
+              {/* Large Faded Watermark Brand Text */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">
+                <span className="text-[5rem] md:text-[7rem] lg:text-[9rem] font-black uppercase tracking-tighter text-neutral-500/10 whitespace-nowrap">
+                  INOVX LAB
+                </span>
+              </div>
+
+              {/* Device Mockup */}
+              <div className="mockup-scroll-wrapper relative w-full h-[340px] lg:h-[520px] flex items-center justify-center" style={{ perspective: "1000px" }}>
+                <div className="relative w-full h-full flex items-center justify-center transform scale-[0.6] md:scale-75 lg:scale-90">
+                  
+                  {/* The iPhone Bezel */}
+                  <div
+                    ref={mockupRef}
+                    className="relative w-[250px] h-[520px] rounded-[2.8rem] iphone-bezel flex flex-col will-change-transform transform-style-3d"
+                  >
+                    {/* Physical Hardware Buttons */}
+                    <div className="absolute top-[120px] -left-[3px] w-[3px] h-[25px] hardware-btn rounded-l-md z-0" aria-hidden="true" />
+                    <div className="absolute top-[160px] -left-[3px] w-[3px] h-[45px] hardware-btn rounded-l-md z-0" aria-hidden="true" />
+                    <div className="absolute top-[220px] -left-[3px] w-[3px] h-[45px] hardware-btn rounded-l-md z-0" aria-hidden="true" />
+                    <div className="absolute top-[170px] -right-[3px] w-[3px] h-[70px] hardware-btn rounded-r-md z-0 scale-x-[-1]" aria-hidden="true" />
+
+                    {/* Inner Screen Container */}
+                    <div className="absolute inset-[7px] bg-[#050914] rounded-[2.5rem] overflow-hidden shadow-[inset_0_0_15px_rgba(0,0,0,1)] text-white z-10">
+                      <div className="absolute inset-0 screen-glare z-40 pointer-events-none" aria-hidden="true" />
+
+                      {/* Dynamic Island Notch */}
+                      <div className="absolute top-[5px] left-1/2 -translate-x-1/2 w-[100px] h-[28px] bg-black rounded-full z-50 flex items-center justify-end px-3 shadow-[inset_0_-1px_2px_rgba(255,255,255,0.1)]">
+                        <div className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)] animate-pulse" />
+                      </div>
+
+                      {/* App Interface - About/Portfolio Preview */}
+                      <div className="relative w-full h-full pt-12 px-5 pb-8 flex flex-col">
+                        <div className="phone-widget flex justify-between items-center mb-6">
+                          <div className="flex flex-col">
+                            <span className="text-[10px] text-neutral-400 uppercase tracking-widest font-bold mb-1">Offerings</span>
+                            <span className="text-lg font-bold tracking-tight text-white drop-shadow-md">Core AI</span>
+                          </div>
+                          <div className="w-8 h-8 rounded-full bg-white/5 text-neutral-200 flex items-center justify-center font-bold text-xs border border-white/10 shadow-lg shadow-black/50">
+                            {companyName.charAt(0)}
+                          </div>
+                        </div>
+
+                        {/* Animated Metric Ring */}
+                        <div className="phone-widget relative w-36 h-36 mx-auto flex items-center justify-center mb-6 drop-shadow-[0_15px_25px_rgba(0,0,0,0.8)]">
+                          <svg className="absolute inset-0 w-full h-full" aria-hidden="true">
+                            <circle cx="72" cy="72" r="54" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="10" />
+                            <circle className="progress-ring" style={{ strokeDasharray: 340, strokeDashoffset: 340 }} cx="72" cy="72" r="54" fill="none" stroke="#FFFFFF" strokeWidth="10" />
+                          </svg>
+                          <div className="text-center z-10 flex flex-col items-center">
+                            <span className="counter-val text-3xl font-extrabold tracking-tighter text-white">0</span>
+                            <span className="text-[7px] text-neutral-400 uppercase tracking-[0.1em] font-bold mt-0.5">{metricLabel}</span>
+                          </div>
+                        </div>
+
+                        {/* Feature Cards */}
+                        <div className="space-y-3">
+                          <div className="phone-widget widget-depth rounded-2xl p-3 flex items-center">
+                            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center mr-3 border border-white/20 shadow-inner">
+                              <svg className="w-4 h-4 text-white/80 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                              </svg>
+                            </div>
+                            <div className="flex-1">
+                              <div className="h-2 w-24 bg-neutral-300 rounded-full mb-2 shadow-inner" />
+                              <div className="h-1.5 w-16 bg-neutral-600 rounded-full shadow-inner" />
+                            </div>
+                          </div>
+                          <div className="phone-widget widget-depth rounded-2xl p-3 flex items-center">
+                            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-neutral-500/20 to-neutral-600/5 flex items-center justify-center mr-3 border border-neutral-400/20 shadow-inner">
+                              <svg className="w-4 h-4 text-neutral-300 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                              </svg>
+                            </div>
+                            <div className="flex-1">
+                              <div className="h-2 w-20 bg-neutral-300 rounded-full mb-2 shadow-inner" />
+                              <div className="h-1.5 w-20 bg-neutral-600 rounded-full shadow-inner" />
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Home Indicator */}
+                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[120px] h-[4px] bg-white/20 rounded-full shadow-[0_1px_2px_rgba(0,0,0,0.5)]" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Floating Notification Badges — tight to phone */}
+                  <div className="floating-badge absolute flex top-4 left-[-20px] lg:left-[-60px] floating-ui-badge rounded-xl lg:rounded-2xl p-2.5 lg:p-3 items-center gap-2.5 lg:gap-3 z-30">
+                    <div className="w-7 h-7 lg:w-9 lg:h-9 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
+                      <Brain className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-white/80" />
+                    </div>
+                    <div>
+                      <p className="text-white text-[11px] lg:text-xs font-bold tracking-tight">Smart Automation</p>
+                      <p className="text-neutral-400 text-[9px] lg:text-[10px] font-medium">Eliminate manual effort</p>
+                    </div>
+                  </div>
+
+                  <div className="floating-badge absolute flex top-1/2 -translate-y-1/2 right-[-20px] lg:right-[-60px] floating-ui-badge rounded-xl lg:rounded-2xl p-2.5 lg:p-3 items-center gap-2.5 lg:gap-3 z-30">
+                    <div className="w-7 h-7 lg:w-9 lg:h-9 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
+                      <Lock className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-white/80" />
+                    </div>
+                    <div>
+                      <p className="text-white text-[11px] lg:text-xs font-bold tracking-tight">Data Privacy</p>
+                      <p className="text-neutral-400 text-[9px] lg:text-[10px] font-medium">End-to-end protection</p>
+                    </div>
+                  </div>
+
+                  <div className="floating-badge absolute flex bottom-4 left-[-10px] lg:left-[-50px] floating-ui-badge rounded-xl lg:rounded-2xl p-2.5 lg:p-3 items-center gap-2.5 lg:gap-3 z-30">
+                    <div className="w-7 h-7 lg:w-9 lg:h-9 rounded-full bg-gradient-to-b from-neutral-500/20 to-neutral-900/10 flex items-center justify-center border border-neutral-400/30 shadow-inner">
+                      <Settings className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-white/80" />
+                    </div>
+                    <div>
+                      <p className="text-white text-[11px] lg:text-xs font-bold tracking-tight">Secure Systems</p>
+                      <p className="text-neutral-400 text-[9px] lg:text-[10px] font-medium">Robust & protected</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
             </div>
 
           </div>

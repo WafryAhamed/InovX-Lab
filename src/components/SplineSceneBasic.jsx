@@ -39,3 +39,5 @@ export function SplineSceneBasic({ onLoad }) {
     </Card>
   );
 }
+
+export default SplineSceneBasic;

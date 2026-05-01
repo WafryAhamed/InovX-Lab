@@ -2,32 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send } from 'lucide-react';
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.18,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: 'easeOut' },
-  },
-};
-
-const headingVariants = {
-  hidden: { opacity: 0, y: 60 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: 'easeOut' },
-  },
-};
+import { staggerContainer, staggerItem, fadeUpVariant, buttonHover, buttonTap } from '../utils/motion';
 
 export const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -53,7 +28,7 @@ export const Contact = () => {
         variants={containerVariants}
       >
         {/* Badge */}
-        <motion.div variants={headingVariants} className="text-center mb-4">
+        <motion.div variants={fadeUpVariant} className="text-center mb-4">
           <span className="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.03] text-xs uppercase tracking-[0.25em] text-white/50 font-medium">
             Get In Touch
           </span>
@@ -61,7 +36,7 @@ export const Contact = () => {
 
         {/* Heading */}
         <motion.h2
-          variants={headingVariants}
+          variants={fadeUpVariant}
           className="text-4xl md:text-5xl font-bold text-center mb-5"
         >
           <span className="text-white">Let's Build Something</span>
@@ -73,7 +48,7 @@ export const Contact = () => {
 
         {/* Description */}
         <motion.p
-          variants={headingVariants}
+          variants={fadeUpVariant}
           className="text-lg text-white/60 max-w-2xl mx-auto text-center leading-relaxed mb-16"
         >
           Have an idea or project in mind? Let's collaborate and create
@@ -83,7 +58,7 @@ export const Contact = () => {
         {/* Form */}
         <motion.form
           onSubmit={handleSubmit}
-          variants={containerVariants}
+          variants={staggerContainer}
           className="max-w-xl mx-auto p-8 rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm"
         >
           {/* Name */}
@@ -121,7 +96,7 @@ export const Contact = () => {
           </motion.div>
 
           {/* Message */}
-          <motion.div variants={itemVariants} className="mb-8">
+          <motion.div variants={staggerItem} className="mb-8">
             <label
               htmlFor="contact-message"
               className="block text-xs uppercase tracking-[0.2em] text-white/40 font-medium mb-2"
@@ -138,12 +113,11 @@ export const Contact = () => {
           </motion.div>
 
           {/* Submit Button */}
-          <motion.div variants={itemVariants}>
+          <motion.div variants={staggerItem}>
             <motion.button
               type="submit"
-              whileHover={{ scale: 1.05, y: -3 }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
+              whileHover={buttonHover}
+              whileTap={buttonTap}
               className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-white text-black text-sm font-semibold tracking-wide transition-shadow duration-300 hover:shadow-[0_0_24px_-4px_rgba(255,255,255,0.2)]"
             >
               Send Message

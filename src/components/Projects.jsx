@@ -32,23 +32,7 @@ const projects = [
   },
 ];
 
-const headingVariants = {
-  hidden: { opacity: 0, y: 60 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: 'easeOut' },
-  },
-};
-
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
+import { staggerContainer, fadeUpVariant, alternateSlideIn, cardHover } from '../utils/motion';
 
 const ProjectCard = ({ project, index }) => {
   const cardRef = useRef(null);
@@ -60,24 +44,14 @@ const ProjectCard = ({ project, index }) => {
 
   const isEven = index % 2 === 0;
 
-  const itemVariants = {
-    hidden: { opacity: 0, x: isEven ? -80 : 80 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: 'easeOut' },
-    },
-  };
+  const itemVariants = alternateSlideIn(isEven ? 'left' : 'right');
 
   return (
     <motion.div
       ref={cardRef}
       variants={itemVariants}
       style={{ y }}
-      whileHover={{
-        scale: 1.04,
-        transition: { duration: 0.3, ease: 'easeOut' },
-      }}
+      whileHover={cardHover}
       className="group rounded-2xl border border-white/[0.06] bg-[#111] overflow-hidden backdrop-blur-sm transition-shadow duration-300 hover:border-white/[0.12] hover:shadow-[0_0_40px_-8px_rgba(255,255,255,0.06)]"
     >
       {/* Image */}
@@ -131,10 +105,10 @@ export const Projects = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-80px' }}
-        variants={containerVariants}
+        variants={staggerContainer}
       >
         {/* Badge */}
-        <motion.div variants={headingVariants} className="text-center mb-4">
+        <motion.div variants={fadeUpVariant} className="text-center mb-4">
           <span className="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.03] text-xs uppercase tracking-[0.25em] text-white/50 font-medium">
             Portfolio
           </span>
@@ -142,7 +116,7 @@ export const Projects = () => {
 
         {/* Heading */}
         <motion.h2
-          variants={headingVariants}
+          variants={fadeUpVariant}
           className="text-4xl md:text-5xl font-bold text-center mb-5"
         >
           <span className="text-white">Our</span>{' '}
@@ -153,7 +127,7 @@ export const Projects = () => {
 
         {/* Description */}
         <motion.p
-          variants={headingVariants}
+          variants={fadeUpVariant}
           className="text-lg text-white/60 max-w-2xl mx-auto text-center leading-relaxed mb-16"
         >
           Explore how we build intelligent AI-powered systems that solve
@@ -163,7 +137,7 @@ export const Projects = () => {
         {/* Projects Grid */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-          variants={containerVariants}
+          variants={staggerContainer}
         >
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />

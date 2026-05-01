@@ -3,6 +3,7 @@ import { SplineSceneBasic } from './components/SplineSceneBasic';
 import { About } from './components/About';
 import { Services } from './components/Services';
 import { Projects } from './components/Projects';
+import { Contact } from './components/Contact';
 
 export function App() {
   return (
@@ -30,6 +31,9 @@ export function App() {
 
         {/* Projects Section */}
         <Projects />
+
+        {/* Contact Section */}
+        <Contact />
       </main>
     </div>
   );

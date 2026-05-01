@@ -2,10 +2,32 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 import { staggerContainer, staggerItem } from '../utils/motion';
+import Antigravity from './Antigravity';
 
 export const About = () => {
   return (
-    <section id="about" className="relative py-24 overflow-hidden bg-black">
+    <section id="about" className="relative py-24 overflow-hidden bg-black min-h-screen flex items-center">
+      {/* Background */}
+      <div className="absolute inset-0 z-0 opacity-40 pointer-events-none">
+        <Antigravity
+          count={800}
+          magnetRadius={8}
+          ringRadius={7}
+          waveSpeed={0}
+          waveAmplitude={0}
+          particleSize={0.4}
+          lerpSpeed={0.04}
+          color="#ffffff"
+          autoAnimate={false}
+          particleVariance={0.8}
+          rotationSpeed={0}
+          depthFactor={0.7}
+          pulseSpeed={1}
+          particleShape="capsule"
+          fieldStrength={14}
+        />
+      </div>
+
       {/* Content */}
       <motion.div
         className="relative z-10 max-w-4xl mx-auto px-6 text-center"

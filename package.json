@@ -16,6 +16,7 @@
     "react-dom": "^18.3.1",
     "@emotion/react": "^11.13.3",
     "clsx": "latest",
+    "framer-motion": "^12.38.0",
     "tailwind-merge": "latest",
     "lucide-react": "0.522.0",
     "@splinetool/react-spline": "latest",

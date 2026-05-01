@@ -142,19 +142,19 @@ const features = [
     title: 'Adaptive Automation',
     description:
       'Systems that learn from behavior and continuously optimize workflows without manual intervention.',
-    Visual: NodesVisual,
+    videoSrc: '/assets/videos/01-adaptive-automation.mp4',
   },
   {
     title: 'Real-Time Intelligence',
     description:
       'Instant insights powered by live data streams, enabling faster and smarter decision-making.',
-    Visual: DataFlowVisual,
+    videoSrc: '/assets/videos/02-real-time-intelligence.mp4',
   },
   {
     title: 'Scalable Architecture',
     description:
       'Built to grow with your business, handling complexity and scale with ease.',
-    Visual: ScaleVisual,
+    videoSrc: '/assets/videos/03-scalable-architecture.mp4',
   },
 ];
 
@@ -162,32 +162,41 @@ const features = [
 
 const FeatureRow = ({ feature, index, rowRef }) => {
   const isReversed = index % 2 !== 0;
-  const { Visual } = feature;
 
   return (
     <div
       ref={rowRef}
-      className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 md:gap-12 lg:gap-16`}
+      className="relative w-full h-[80vh] md:h-screen flex items-center overflow-hidden border-t border-white/[0.05]"
     >
-      {/* Text */}
-      <div className="flex-1 text-center md:text-left">
-        <div className="inline-block px-3 py-1 rounded-full border border-white/[0.08] bg-white/[0.03] text-[10px] uppercase tracking-[0.2em] text-white/40 font-medium mb-4">
-          0{index + 1}
-        </div>
-        <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-          {feature.title}
-        </h3>
-        <p className="text-base md:text-lg text-white/60 leading-relaxed max-w-md">
-          {feature.description}
-        </p>
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0 feature-media bg-black">
+        <video
+          src={feature.videoSrc}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-40 scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/40 to-black" />
+        <div className={`absolute inset-0 bg-gradient-to-r ${isReversed ? 'from-transparent via-transparent to-black/80' : 'from-black/80 via-transparent to-transparent'}`} />
       </div>
 
-      {/* Visual */}
-      <div className="flex-1 w-full">
-        <div className="relative rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm overflow-hidden">
-          {/* Soft glow */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] via-transparent to-transparent pointer-events-none" />
-          <Visual />
+      {/* Text */}
+      <div 
+        className={`relative z-10 w-full max-w-6xl mx-auto px-6 flex ${isReversed ? 'justify-end' : 'justify-start'} feature-text`}
+        style={{ perspective: "1000px" }}
+      >
+        <div className="max-w-2xl">
+          <div className="inline-block px-4 py-2 rounded-md border border-white/[0.15] bg-white/[0.1] backdrop-blur-sm text-sm md:text-base uppercase tracking-[0.2em] text-white/90 font-semibold mb-6 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+            0{index + 1}
+          </div>
+          <h3 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-2xl">
+            {feature.title}
+          </h3>
+          <p className="text-lg md:text-2xl text-white/80 leading-relaxed drop-shadow-lg font-light">
+            {feature.description}
+          </p>
         </div>
       </div>
     </div>
@@ -244,21 +253,45 @@ export const About = () => {
 
       // Feature Rows Staggered Reveal
       rowsRef.current.forEach((row, i) => {
-        gsap.fromTo(
-          row,
-          { y: 120, opacity: 0, scale: 0.95 },
-          {
-            y: 0,
-            opacity: 1,
-            scale: 1,
-            scrollTrigger: {
-              trigger: row,
-              start: "top 85%",
-              end: "top 40%",
-              scrub: 1,
-            },
-          }
-        );
+        const text = row.querySelector('.feature-text');
+        const media = row.querySelector('.feature-media video');
+        
+        if (text) {
+          gsap.fromTo(
+            text.children[0],
+            { y: 120, opacity: 0, scale: 0.8, rotateX: 20 },
+            {
+              y: 0,
+              opacity: 1,
+              scale: 1,
+              rotateX: 0,
+              duration: 1.4,
+              ease: "expo.out",
+              scrollTrigger: {
+                trigger: row,
+                start: "top 65%",
+                toggleActions: "play none none reverse",
+              },
+            }
+          );
+        }
+
+        if (media) {
+          gsap.fromTo(
+            media,
+            { scale: 1.25, filter: "blur(10px) brightness(0.4)" },
+            {
+              scale: 1.05,
+              filter: "blur(0px) brightness(1)",
+              scrollTrigger: {
+                trigger: row,
+                start: "top bottom",
+                end: "center center",
+                scrub: 1.5,
+              },
+            }
+          );
+        }
       });
     }, wrapperRef);
 
@@ -294,34 +327,36 @@ export const About = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
+      <div className="relative z-10 w-full">
         {/* Header */}
-        <div ref={headerRef} className="text-center mb-28">
-          {/* Badge */}
-          <div className="mb-6">
-            <span className="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.03] text-xs uppercase tracking-[0.25em] text-white/50 font-medium">
-              What We Do
-            </span>
+        <div className="max-w-6xl mx-auto px-6">
+          <div ref={headerRef} className="text-center mb-20 md:mb-32">
+            {/* Badge */}
+            <div className="mb-6">
+              <span className="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.03] text-xs uppercase tracking-[0.25em] text-white/50 font-medium">
+                What We Do
+              </span>
+            </div>
+
+            {/* Heading */}
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              <span className="text-white">Designing Intelligent Systems</span>
+              <br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white/90 via-white/70 to-white/50">
+                That Think, Learn, and Scale
+              </span>
+            </h2>
+
+            {/* Subtext */}
+            <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
+              We create AI-powered systems that adapt in real time, automate complex
+              workflows, and turn data into meaningful business outcomes.
+            </p>
           </div>
-
-          {/* Heading */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            <span className="text-white">Designing Intelligent Systems</span>
-            <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white/90 via-white/70 to-white/50">
-              That Think, Learn, and Scale
-            </span>
-          </h2>
-
-          {/* Subtext */}
-          <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
-            We create AI-powered systems that adapt in real time, automate complex
-            workflows, and turn data into meaningful business outcomes.
-          </p>
         </div>
 
         {/* Feature Rows */}
-        <div className="flex flex-col gap-24 md:gap-32">
+        <div className="flex flex-col w-full relative z-10">
           {features.map((feature, index) => (
             <FeatureRow 
               key={feature.title} 

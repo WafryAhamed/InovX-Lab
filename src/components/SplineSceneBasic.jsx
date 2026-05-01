@@ -2,7 +2,7 @@ import { SplineScene } from './ui/splite';
 import { Card } from './ui/card';
 import { Spotlight } from './ui/spotlight';
 
-export function SplineSceneBasic() {
+export function SplineSceneBasic({ onLoad }) {
   return (
     <Card className="w-full h-[500px] bg-black/[0.96] relative overflow-hidden border-neutral-800">
       <Spotlight
@@ -32,6 +32,7 @@ export function SplineSceneBasic() {
           <SplineScene
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             className="w-full h-full"
+            onLoad={onLoad}
           />
         </div>
       </div>

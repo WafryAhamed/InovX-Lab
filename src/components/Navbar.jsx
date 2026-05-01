@@ -56,27 +56,25 @@ export const Navbar = () => {
           : 'bg-transparent border-b border-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between relative">
-        {/* Left Spacer for mobile balance */}
-        <div className="w-10 md:hidden" />
+      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center md:grid md:grid-cols-3 relative">
+        {/* LEFT: Logo — centered on mobile via absolute, left-aligned on desktop */}
+        <div className="flex justify-start">
+          <a
+            href="#hero"
+            onClick={(e) => handleClick(e, '#hero')}
+            className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex items-center z-10"
+          >
+            <img
+              src="/assets/logo.png"
+              alt="InovX Lab"
+              className="w-auto object-contain h-6 sm:h-7 md:h-8 lg:h-10"
+            />
+          </a>
+        </div>
 
-        {/* Logo - Centered on Mobile, Left on Desktop */}
-        <a
-          href="#hero"
-          onClick={(e) => handleClick(e, '#hero')}
-          className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex items-center"
-        >
-          <img
-            src="/assets/logo.png"
-            alt="InovX Lab"
-            className="w-auto object-contain h-6 sm:h-7 md:h-8 lg:h-10"
-          />
-        </a>
-
-        {/* Right Section: Desktop Links & Mobile Toggle */}
-        <div className="flex items-center gap-6 lg:gap-8 relative">
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-8">
+        {/* CENTER: Navigation (Desktop only) */}
+        <div className="hidden md:flex justify-center items-center relative">
+          <div className="flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href;
               return (
@@ -100,8 +98,10 @@ export const Navbar = () => {
               );
             })}
           </div>
+        </div>
 
-          {/* Hamburger Menu Toggle (Mobile) */}
+        {/* RIGHT: Hamburger (mobile) — pushed to far right */}
+        <div className="ml-auto md:ml-0 flex justify-end items-center">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden text-white hover:text-white/80 transition-colors p-2"

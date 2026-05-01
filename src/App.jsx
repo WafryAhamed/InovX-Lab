@@ -5,6 +5,7 @@ import { About } from './components/About';
 import { Services } from './components/Services';
 import { Features } from './components/Features';
 import { Projects } from './components/Projects';
+import { FAQ } from './components/FAQ';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { Chatbot } from './components/Chatbot';
@@ -31,6 +32,9 @@ export function App() {
 
         {/* Projects Section */}
         <Projects />
+
+        {/* FAQ Section */}
+        <FAQ />
 
         {/* Contact Section */}
         <Contact />

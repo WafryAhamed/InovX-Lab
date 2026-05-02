@@ -13,6 +13,17 @@ Modern AI-first web experience built with React, Vite, Tailwind CSS, and immersi
 
 ---
 
+## 🎨 UI/UX Concept
+
+InovX-Lab is built on the principle of **Cinematic Interactivity**. Every element is designed to feel alive, responsive, and narratively driven.
+
+### 🔴 Cinematic Error Handling (Try it!)
+We've replaced generic error states with immersive, character-driven experiences.
+- **[View 'Not Available' Demo](/not-available)**: A minimalist, high-art error state for social redirects.
+- **[View 'Coming Soon' Demo](/coming-soon)**: A deep-immersion "Connection Lost" interface featuring AI robotic entities.
+- **👉 Click and check these details**: Even the failure states are part of the brand story.
+
+
 ## 🖼 Preview
 
 ![Hero Section](./public/assets/preview-hero.png)

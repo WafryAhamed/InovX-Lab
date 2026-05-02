@@ -85,6 +85,8 @@ We've replaced generic error states with immersive, character-driven experiences
 - **[`/not-available`]** — A minimalist, high-art error state for social link redirects featuring an AI robot pet illustration
 - **[`/coming-soon`]** — A deep-immersion "Connection Lost" interface with a full-screen AI robot entity and pulsing "System Error 404" badge
 
+![Click Demo](https://img.shields.io/badge/Click%20Demo-Twitter%20%7C%20Facebook%20%7C%20Instagram-red?style=for-the-badge&logo=vercel&logoColor=white)] 
+<br>🚨Click the Twitter, Facebook, or Instagram icons in the footer to check the demo.
 <table align="center">
   <tr>
     <td align="center">

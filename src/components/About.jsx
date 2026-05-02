@@ -176,6 +176,7 @@ const FeatureRow = ({ feature, index, rowRef }) => {
           loop
           muted
           playsInline
+          preload="auto"
           className="w-full h-full object-cover opacity-40 scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/40 to-black" />
@@ -279,15 +280,15 @@ export const About = () => {
         if (media) {
           gsap.fromTo(
             media,
-            { scale: 1.25, filter: "blur(10px) brightness(0.4)" },
+            { scale: 1.25, filter: "blur(12px) brightness(0.3)" },
             {
-              scale: 1.05,
+              scale: 1,
               filter: "blur(0px) brightness(1)",
               scrollTrigger: {
                 trigger: row,
                 start: "top bottom",
                 end: "center center",
-                scrub: 1.5,
+                scrub: 2.5, // Increased for buttery-smooth "lazy" catch-up
               },
             }
           );
@@ -302,7 +303,7 @@ export const About = () => {
     <section 
       id="about" 
       ref={wrapperRef}
-      className="relative py-32 bg-black"
+      className="relative pt-0 pb-32 bg-black"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       {/* Antigravity Background */}
@@ -330,7 +331,7 @@ export const About = () => {
       <div className="relative z-10 w-full">
         {/* Header */}
         <div className="max-w-6xl mx-auto px-6">
-          <div ref={headerRef} className="text-center mb-20 md:mb-32">
+          <div ref={headerRef} className="text-center mb-12 md:mb-16">
             {/* Badge */}
             <div className="mb-6">
               <span className="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/[0.03] text-xs uppercase tracking-[0.25em] text-white/50 font-medium">

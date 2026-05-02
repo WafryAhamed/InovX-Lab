@@ -13,27 +13,47 @@ Modern AI-first web experience built with React, Vite, Tailwind CSS, and immersi
 
 ---
 
+## 🖼 Preview
+
+![Hero Section](./public/assets/preview-hero.png)
+![Services Section](./public/assets/preview-services.png)
+![Projects Section](./public/assets/preview-projects.png)
+
 ## 🚀 Overview
 
-`InovX-Lab` is an advanced AI solutions landing page designed to bridge the gap between complex neural technology and human-centric design. The platform serves as a high-performance portal for businesses seeking to integrate intelligent automation, real-time data processing, and scalable AI architectures into their core operations.
+InovX-Lab is a modern AI solutions platform designed to showcase how intelligent systems can transform real-world business operations.
 
-### 🌟 Project Mission
-Our mission is to visualize the "Neural Network of Business." By combining cutting-edge WebGL interactions with cinematic storytelling, InovX-Lab demonstrates that AI isn't just a tool, but a living, breathing extension of modern enterprise.
+The project focuses on combining **high-end UI/UX design**, **interactive animations**, and **AI-driven concepts** into a seamless single-page experience.
 
-### ✨ Core Features
-- **Intelligent Hero Interface**: An interactive 3D robot model that responds to user input, symbolizing the responsiveness of our AI systems.
-- **Cinematic About Journey**: A scroll-triggered narrative that uses immersive video and GSAP timelines to explain Adaptive Automation, Real-Time Intelligence, and Scalable Architecture.
-- **Interactive Neural Demo**: A dedicated "Experience Demo" environment that provides a glimpse into the AI's processing telemetry, latency metrics, and core neural sync.
-- **Responsive Adaptive Design**: A fully fluid experience that scales from ultra-wide desktops to mobile devices, maintaining premium glassmorphism effects and sharp typography.
-- **Cinematic Error Handling**: Custom-designed 404 and "Not Available" states that maintain the brand's mysterious, futuristic tone even in failure states.
-- **Neural Chatbot Interface**: A floating AI assistant that provides immediate feedback and engagement for potential clients.
+It demonstrates how businesses can leverage AI for automation, real-time insights, and scalable system architecture through a visually immersive interface.
 
+## ✨ Key Features
+
+- 🤖 **Interactive 3D AI Hero**: Real-time robot model powered by Spline.
+- ⚡ **Butter-Smooth Scrolling**: Virtualized momentum navigation with Lenis.
+- 🎬 **Cinematic Narratives**: GSAP-powered scroll timelines for storytelling.
+- 📊 **AI Services Showcase**: Specialized sections for Automation, Analytics, and Chat.
+- 📁 **Case Studies**: Real-world implementation scenarios and project galleries.
+- 📱 **Adaptive UI**: Fully responsive, mobile-first architectural design.
+- ❌ **Custom 404 Pages**: Themed "Not Available" and "Coming Soon" states.
+- 💬 **Neural Chatbot**: Floating AI assistant with real-time feedback logic.
+
+## 🎯 Why This Project?
+
+This project was built to explore how **modern web technologies + AI concepts** can be combined to create a next-generation digital experience.
+
+It demonstrates:
+- Advanced UI/UX design skills
+- Real-world SPA architecture using React
+- Smooth animation systems using GSAP
+- Clean, scalable frontend structure
+
+Perfect for showcasing **frontend engineering + design thinking** together.
 
 ## 🎥 Live Demo
 
 - **[Live Demo URL](https://inovx-lab.vercel.app)** *(Coming Soon)*
 - **[Interactive Demo Experience](/demo)**: A dedicated neural interface demo showcasing real-time AI processing telemetry and interactive nodes.
-
 
 ## 🛠 Tech Stack
 
@@ -61,20 +81,26 @@ Our mission is to visualize the "Neural Network of Business." By combining cutti
 
 ## 🚀 Getting Started
 
-1. **Clone & Install**
-   ```bash
-   npm install
-   ```
+### 1. Clone the repository
+```bash
+git clone https://github.com/WafryAhamed/InovX-Lab.git
+cd InovX-Lab
+```
 
-2. **Development**
-   ```bash
-   npm run dev
-   ```
+### 2. Install dependencies
+```bash
+npm install
+```
 
-3. **Production Build**
-   ```bash
-   npm run build
-   ```
+### 3. Run development server
+```bash
+npm run dev
+```
+
+### 4. Build for production
+```bash
+npm run build
+```
 
 ## 📜 Acknowledgments
 

@@ -247,7 +247,7 @@ export function CinematicAbout({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=1200",
+          end: "+=1000",
           pin: true,
           scrub: 1,
           anticipatePin: 1,

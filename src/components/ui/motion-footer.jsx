@@ -349,13 +349,13 @@ export function CinematicFooter() {
               <MagneticButton as="a" href="#" className="w-10 h-10 rounded-full footer-glass-pill flex items-center justify-center text-muted-foreground hover:text-foreground hover:scale-110 transition-all duration-300">
                 <Github className="w-4 h-4" />
               </MagneticButton>
-              <MagneticButton as="a" href="#" className="w-10 h-10 rounded-full footer-glass-pill flex items-center justify-center text-muted-foreground hover:text-foreground hover:scale-110 transition-all duration-300">
+              <MagneticButton as="a" href="/not-available" className="w-10 h-10 rounded-full footer-glass-pill flex items-center justify-center text-muted-foreground hover:text-foreground hover:scale-110 transition-all duration-300">
                 <Twitter className="w-4 h-4" />
               </MagneticButton>
-              <MagneticButton as="a" href="#" className="w-10 h-10 rounded-full footer-glass-pill flex items-center justify-center text-muted-foreground hover:text-foreground hover:scale-110 transition-all duration-300">
+              <MagneticButton as="a" href="/coming-soon" className="w-10 h-10 rounded-full footer-glass-pill flex items-center justify-center text-muted-foreground hover:text-foreground hover:scale-110 transition-all duration-300">
                 <Instagram className="w-4 h-4" />
               </MagneticButton>
-              <MagneticButton as="a" href="#" className="w-10 h-10 rounded-full footer-glass-pill flex items-center justify-center text-muted-foreground hover:text-foreground hover:scale-110 transition-all duration-300">
+              <MagneticButton as="a" href="/coming-soon" className="w-10 h-10 rounded-full footer-glass-pill flex items-center justify-center text-muted-foreground hover:text-foreground hover:scale-110 transition-all duration-300">
                 <Facebook className="w-4 h-4" />
               </MagneticButton>
             </div>

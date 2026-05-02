@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin, Github, ArrowUp } from 'lucide-react';
+import { Linkedin, Github, Twitter, ArrowUp } from 'lucide-react';
 
 const containerVariants = {
   hidden: {},
@@ -31,6 +31,7 @@ const navLinks = [
 const socials = [
   { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
   { icon: Github, href: 'https://github.com', label: 'GitHub' },
+  { icon: Twitter, href: '/not-available', label: 'Twitter' },
 ];
 
 export const Footer = () => {

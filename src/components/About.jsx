@@ -162,6 +162,21 @@ const features = [
 
 const FeatureRow = ({ feature, index, rowRef }) => {
   const isReversed = index % 2 !== 0;
+  const videoRef = useRef(null);
+
+  // Background preloading strategy:
+  // Wait a few seconds for the initial page load (hero section, 3D models) to finish,
+  // then tell the browser to start downloading the videos in the background.
+  // We stagger the downloads (3s, 4s, 5s) so they don't block each other.
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.preload = "auto";
+      }
+    }, 3000 + index * 1000);
+
+    return () => clearTimeout(timer);
+  }, [index]);
 
   return (
     <div
@@ -171,12 +186,13 @@ const FeatureRow = ({ feature, index, rowRef }) => {
       {/* Background Video */}
       <div className="absolute inset-0 z-0 feature-media bg-black">
         <video
+          ref={videoRef}
           src={feature.videoSrc}
           autoPlay
           loop
           muted
           playsInline
-          preload="auto"
+          preload="none"
           className="w-full h-full object-cover opacity-40 scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/40 to-black" />
@@ -303,7 +319,7 @@ export const About = () => {
     <section 
       id="about" 
       ref={wrapperRef}
-      className="relative pt-0 pb-32 bg-black"
+      className="relative pt-20 pb-32 bg-black scroll-mt-20"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       {/* Antigravity Background */}

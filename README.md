@@ -400,8 +400,7 @@ npm run lint
 ## Deployment
 
 
-
-**[Live Demo](https://inov-x-lab.vercel.app/)** *(Coming Soon)*
+**[Live Demo](https://inov-x-lab.vercel.app/)** 
 
 
 

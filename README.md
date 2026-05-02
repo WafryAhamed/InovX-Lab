@@ -395,7 +395,7 @@ npm run lint
 
 ---
 
-## 🌐 Deployment
+## Deployment
 
 
 
@@ -403,7 +403,7 @@ npm run lint
 
 
 
-## 📜 Acknowledgments
+##  Acknowledgments
 
 - **AI Image & Video Generation**: All futuristic robotic visuals, cinematic backgrounds, and motion sequences were created using advanced AI image and video generation tools to maintain a consistent, high-end aesthetic.
 
